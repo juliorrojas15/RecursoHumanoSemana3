@@ -25,4 +25,8 @@ public class EmpleadoRepositorio {
     public Empleado save (Empleado empleado){
         return empleadoCrudRepositorio.save(empleado);
     }
+
+    public void delete (Empleado empleado){
+        empleadoCrudRepositorio.save(empleado);
+    }
 }

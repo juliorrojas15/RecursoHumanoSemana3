@@ -26,4 +26,8 @@ public class DepartamentoRepositorio {
     public Departamento save (Departamento dpto){
         return departamentoCrudRepositorio.save(dpto);
     }
+
+    public void delete (Departamento dpto){
+        departamentoCrudRepositorio.delete(dpto);
+    }
 }

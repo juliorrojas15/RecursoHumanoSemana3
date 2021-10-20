@@ -40,5 +40,27 @@ public class DepartamentoServicio {
 
         }
     }
+
+    public Departamento update (Departamento dpto){
+        
+        //Verificar si se ingresó un número de ID
+        if (dpto.getNumId() != null){
+            Optional<Departamento> consulta = departamentoRepositorio.getDepartamento(dpto.getNumId());
+            if (!consulta.isEmpty()){
+                if (dpto.getNombreDepartamento() != null){
+                    consulta.get().setNombreDepartamento(dpto.getNombreDepartamento());
+                }
+                if (dpto.getFechaCreacionDate() != null){
+                    consulta.get().setFechaCreacionDate(dpto.getFechaCreacionDate());
+                }
+                if (dpto.getEmpleados() != null){
+                    consulta.get().setEmpleados(dpto.getEmpleados());
+                }
+                return departamentoRepositorio.save(consulta.get());
+            } 
+        }
+        return dpto;
+    }
+
 }
 
